@@ -7,6 +7,7 @@
 //
 
 #pragma once
+#include <string>
 #include "vec.hpp"
 
 
@@ -14,34 +15,35 @@
 /// Atmospheres are, so far, modeled using the basic
 struct massive_body final {
     
-    massive_body(double radius, double mass, double rho0, double scaleH);
+    massive_body(const std::string& name,
+                 double radius,
+                 double mu,
+                 double rho_0,
+                 double atmo_scale_h,
+                 double atmo_h);
     
-    massive_body();
+    massive_body(const std::string& json_file);
+    
+    ~massive_body();
     
     
-    vec3 gravity(const vec3& at) const {
-        double r = (position_ - at).magnitude();
-        return (position_ - at).normalize((mu_) / (r*r));
-    }
+    // Local gravity force exerted by the body.
+    vec3 gravity(const vec3& at) const;
     
-    
-    /// Local vertical relative to the planet.
-    vec3 up(const vec3& at) const {
-        return (at - position_).normalize();
-    }
+    /// Local vertical relative to the body.
+    vec3 up(const vec3& at) const;
     
     /// Altitude relative to the body.
-    double altitude(const vec3& at) const {
-        return (at - position_).magnitude() - radius_;
-    }
+    double altitude(const vec3& at) const;
     
     /// Atmospheric density at the current position.
-    double atmo_density(const vec3& at) const {
-        auto h = altitude(at);
-        return atmo_.groundDensity * std::pow(M_E, -(h/atmo_.scaleHeight));
-    }
+    double atmo_density(const vec3& at) const;
     
 private:
+    
+    std::string name;
+    
+    double rotation_period_;
     
     vec3 position_;
     
@@ -52,6 +54,7 @@ private:
     struct {
         double groundDensity;
         double scaleHeight;
+        double depth;
     } atmo_;
     
 };
