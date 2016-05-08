@@ -35,6 +35,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DB83236B1CDDEB54000D6A56 /* json.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
 		DB847D9E1CDA2F1300681F93 /* kepler */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = kepler; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB847DA11CDA2F1300681F93 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		DB847DAA1CDA2FF100681F93 /* matrix.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = matrix.hpp; sourceTree = "<group>"; };
@@ -47,6 +48,7 @@
 		DB847DBE1CDA87BF00681F93 /* massive_body.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = massive_body.hpp; path = kepler/massive_body.hpp; sourceTree = "<group>"; };
 		DB847DC11CDABC1000681F93 /* orbit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = orbit.cpp; path = kepler/orbit.cpp; sourceTree = "<group>"; };
 		DB847DC21CDABC1000681F93 /* orbit.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = orbit.hpp; path = kepler/orbit.hpp; sourceTree = "<group>"; };
+		DBCC06731CDB69F300916F5D /* integrator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = integrator.hpp; path = kepler/integrator.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		DB847DA01CDA2F1300681F93 /* kepler */ = {
 			isa = PBXGroup;
 			children = (
+				DB83236B1CDDEB54000D6A56 /* json.hpp */,
 				DB847DA91CDA2FDA00681F93 /* geometry */,
 				DB847DBC1CDA86E500681F93 /* orbits */,
 				DB847DA11CDA2F1300681F93 /* main.cpp */,
@@ -121,6 +124,7 @@
 				DB847DBE1CDA87BF00681F93 /* massive_body.hpp */,
 				DB847DC11CDABC1000681F93 /* orbit.cpp */,
 				DB847DC21CDABC1000681F93 /* orbit.hpp */,
+				DBCC06731CDB69F300916F5D /* integrator.hpp */,
 			);
 			name = orbits;
 			path = ..;
@@ -357,6 +361,7 @@
 				DB847DB91CDA3A4100681F93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

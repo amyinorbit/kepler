@@ -10,7 +10,6 @@
 
 #include <iostream>
 #include <initializer_list>
-#include "vec.hpp"
 
 /*!
  * @class       Mat
@@ -257,24 +256,6 @@ operator*(const matrix<a,b>& lhs, const matrix<b,c>& rhs) {
         }
     }
     return p;
-}
-
-/*!
- * @internal
- * @brief       Multiply a vector by a matrix.
- */
-template<typename T, int r, int c> const vec<T, c>
-operator*(const matrix<r,c>& lhs, const vec<T,c>& rhs) {
-    vec<T,c> v = 0;
-    T temp;
-    for(int i = 0; i < c; ++i) {
-        temp = 0;
-        for(int k = 0; k < c; ++k) {
-            temp += (T)lhs[i][k] * rhs.data[k];
-        }
-        v.data[i] = temp;
-    }
-    return v;
 }
 
 // MARK: Matrix-to-scalar ops

@@ -7,6 +7,7 @@
 //
 #pragma once
 #include "utils.hpp"
+#include "matrix.hpp"
 #include <cmath>
 #include <iostream>
 
@@ -278,6 +279,24 @@ operator/(double lhs, const vec<T, S>& rhs) {
     return v;
 }
 
+/*!
+ * @internal
+ * @brief       Multiply a vector by a matrix.
+ */
+template<typename T, int r, int c> const vec<T, c>
+operator*(const matrix<r,c>& lhs, const vec<T,c>& rhs) {
+    vec<T,c> v = 0;
+    T temp;
+    for(int i = 0; i < c; ++i) {
+        temp = 0;
+        for(int k = 0; k < c; ++k) {
+            temp += (T)lhs[i][k] * rhs.data[k];
+        }
+        v.data[i] = temp;
+    }
+    return v;
+}
+
 // MARK: -
 // MARK: Vector printer
 
@@ -363,9 +382,9 @@ struct vec<T, 2> {
     /*!
      * @brief       Get the vector's magnitude.
      */
-    float
+    T
     magnitude() const {
-        return sqrtf(x*x + y*y);
+        return std::sqrt(x*x + y*y);
     }
     
     /*!
@@ -373,11 +392,9 @@ struct vec<T, 2> {
      */
     vec<T, 2>
     normalize(float len = 1) const {
-        float _length = magnitude();
-        if(_length != 0) {
-            return vec<T, 2>(*this) * (len / magnitude());
-        }
-        return vec<T, 2>(0);
+        T _length = magnitude();
+        if(_length == 0 || _length == 1) { return *this; }
+        return vec<T, 2>(*this) * (len / _length);
     }
     
     union {
@@ -438,9 +455,9 @@ struct vec<T, 3> {
     /*!
      * @brief       Get the vector's magnitude.
      */
-    float
+    T
     magnitude() const {
-        return sqrtf(x*x + y*y + z*z);
+        return std::sqrt(x*x + y*y + z*z);
     }
     
     static vec
@@ -453,15 +470,33 @@ struct vec<T, 3> {
     }
     
     /*!
+     * Rodriges rotation formula
+     */
+    vec
+    rotate(const vec& axis, double angle) const {
+        auto p = this->normalize();
+        auto a = axis.normalize();
+        auto s = std::sin(angle);
+        auto c = std::cos(angle);
+        
+        auto t = mat33{
+            a.x*a.x*(1-c) + c,      a.x*a.y*(1-c) - a.z*s,  a.x*a.z*(1-c) + a.y*s,
+            a.y*a.x*(1-c) + a.z*s,  a.y*a.y*(1-c) + c,      a.y*a.z*(1-c) - a.x*s,
+            a.z*a.x*(1-c) - a.y*s,  a.z*a.y*(1-c) + a.x*s,  a.z*a.z*(1-c) + c,
+        };
+        
+        return t * p;
+    }
+    
+    /*!
      * @brief       Returns a vector with the same direction and a given magnitude
      */
     vec<T, 3>
-    normalize(float len = 1) const {
-        float _length = magnitude();
-        if(_length != 0) {
-            return vec<T, 3>(*this) * (len / magnitude());
-        }
-        return vec<T, 3>{0, 0, 0};
+    normalize(T len = 1) const {
+        T _length = magnitude();
+        if(_length == 0 || _length == 1) { return *this; }
+        
+        return vec<T, 3>(*this) * (len / _length);
     }
     
     union {
