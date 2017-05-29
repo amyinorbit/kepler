@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB13F7371CDFE1D700F51DCC /* solid_body.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB13F7351CDFE1D700F51DCC /* solid_body.cpp */; };
+		DB29A5FB1CDFF5EC0073842B /* rk4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB29A5F91CDFF5EC0073842B /* rk4.cpp */; };
+		DB29A5FF1CE006A80073842B /* simulation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB29A5FD1CE006A80073842B /* simulation.cpp */; };
 		DB847DA21CDA2F1300681F93 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB847DA11CDA2F1300681F93 /* main.cpp */; };
 		DB847DB61CDA3A4100681F93 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB847DB51CDA3A4100681F93 /* main.cpp */; };
 		DB847DBF1CDA87BF00681F93 /* massive_body.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB847DBD1CDA87BF00681F93 /* massive_body.cpp */; };
 		DB847DC31CDABC1000681F93 /* orbit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB847DC11CDABC1000681F93 /* orbit.cpp */; };
+		DBD372F81CE105CA0023675A /* stage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBD372F61CE105CA0023675A /* stage.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,7 +39,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DB83236B1CDDEB54000D6A56 /* json.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
+		DB13F7351CDFE1D700F51DCC /* solid_body.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = solid_body.cpp; sourceTree = "<group>"; };
+		DB13F7361CDFE1D700F51DCC /* solid_body.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = solid_body.hpp; sourceTree = "<group>"; };
+		DB13F7381CDFE25300F51DCC /* physics.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = physics.hpp; sourceTree = "<group>"; };
+		DB29A5F91CDFF5EC0073842B /* rk4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rk4.cpp; sourceTree = "<group>"; };
+		DB29A5FA1CDFF5EC0073842B /* rk4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rk4.hpp; sourceTree = "<group>"; };
+		DB29A5FD1CE006A80073842B /* simulation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = simulation.cpp; sourceTree = "<group>"; };
+		DB29A5FE1CE006A80073842B /* simulation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = simulation.hpp; sourceTree = "<group>"; };
 		DB847D9E1CDA2F1300681F93 /* kepler */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = kepler; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB847DA11CDA2F1300681F93 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		DB847DAA1CDA2FF100681F93 /* matrix.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = matrix.hpp; sourceTree = "<group>"; };
@@ -48,7 +58,10 @@
 		DB847DBE1CDA87BF00681F93 /* massive_body.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = massive_body.hpp; path = kepler/massive_body.hpp; sourceTree = "<group>"; };
 		DB847DC11CDABC1000681F93 /* orbit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = orbit.cpp; path = kepler/orbit.cpp; sourceTree = "<group>"; };
 		DB847DC21CDABC1000681F93 /* orbit.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = orbit.hpp; path = kepler/orbit.hpp; sourceTree = "<group>"; };
-		DBCC06731CDB69F300916F5D /* integrator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = integrator.hpp; path = kepler/integrator.hpp; sourceTree = "<group>"; };
+		DBCC06731CDB69F300916F5D /* integrator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = integrator.hpp; sourceTree = "<group>"; };
+		DBD372F61CE105CA0023675A /* stage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stage.cpp; sourceTree = "<group>"; };
+		DBD372F71CE105CA0023675A /* stage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = stage.hpp; sourceTree = "<group>"; };
+		DBD372F91CE106FB0023675A /* json.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +82,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB13F7331CDFDE6A00F51DCC /* integration */ = {
+			isa = PBXGroup;
+			children = (
+				DB13F7381CDFE25300F51DCC /* physics.hpp */,
+				DBCC06731CDB69F300916F5D /* integrator.hpp */,
+				DB13F7351CDFE1D700F51DCC /* solid_body.cpp */,
+				DB13F7361CDFE1D700F51DCC /* solid_body.hpp */,
+				DB29A5F91CDFF5EC0073842B /* rk4.cpp */,
+				DB29A5FA1CDFF5EC0073842B /* rk4.hpp */,
+			);
+			name = integration;
+			sourceTree = "<group>";
+		};
+		DB29A5FC1CE004000073842B /* mission planner */ = {
+			isa = PBXGroup;
+			children = (
+				DB29A5FD1CE006A80073842B /* simulation.cpp */,
+				DB29A5FE1CE006A80073842B /* simulation.hpp */,
+			);
+			name = "mission planner";
+			sourceTree = "<group>";
+		};
 		DB847D951CDA2F1300681F93 = {
 			isa = PBXGroup;
 			children = (
@@ -90,9 +125,12 @@
 		DB847DA01CDA2F1300681F93 /* kepler */ = {
 			isa = PBXGroup;
 			children = (
-				DB83236B1CDDEB54000D6A56 /* json.hpp */,
+				DBD372F91CE106FB0023675A /* json.hpp */,
+				DBD372F51CE105BB0023675A /* rocket */,
 				DB847DA91CDA2FDA00681F93 /* geometry */,
 				DB847DBC1CDA86E500681F93 /* orbits */,
+				DB13F7331CDFDE6A00F51DCC /* integration */,
+				DB29A5FC1CE004000073842B /* mission planner */,
 				DB847DA11CDA2F1300681F93 /* main.cpp */,
 				DB847DBB1CDA629800681F93 /* processing.py */,
 			);
@@ -124,10 +162,18 @@
 				DB847DBE1CDA87BF00681F93 /* massive_body.hpp */,
 				DB847DC11CDABC1000681F93 /* orbit.cpp */,
 				DB847DC21CDABC1000681F93 /* orbit.hpp */,
-				DBCC06731CDB69F300916F5D /* integrator.hpp */,
 			);
 			name = orbits;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		DBD372F51CE105BB0023675A /* rocket */ = {
+			isa = PBXGroup;
+			children = (
+				DBD372F61CE105CA0023675A /* stage.cpp */,
+				DBD372F71CE105CA0023675A /* stage.hpp */,
+			);
+			name = rocket;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,7 +219,7 @@
 		DB847D961CDA2F1300681F93 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = cesarparent;
 				TargetAttributes = {
 					DB847D9D1CDA2F1300681F93 = {
@@ -208,7 +254,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB847DA21CDA2F1300681F93 /* main.cpp in Sources */,
+				DB13F7371CDFE1D700F51DCC /* solid_body.cpp in Sources */,
+				DBD372F81CE105CA0023675A /* stage.cpp in Sources */,
+				DB29A5FF1CE006A80073842B /* simulation.cpp in Sources */,
 				DB847DC31CDABC1000681F93 /* orbit.cpp in Sources */,
+				DB29A5FB1CDFF5EC0073842B /* rk4.cpp in Sources */,
 				DB847DBF1CDA87BF00681F93 /* massive_body.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,8 +288,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -282,8 +334,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";

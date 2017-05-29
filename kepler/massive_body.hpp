@@ -10,7 +10,6 @@
 #include <string>
 #include "vec.hpp"
 
-
 /// Defines the way planets are represented in the integrator/universe
 /// Atmospheres are, so far, modeled using the basic
 struct massive_body final {
@@ -61,21 +60,28 @@ struct massive_body final {
     /// Atmospheric density at the current position.
     double atmo_density(const vec3& at) const;
     
+    double gravitation_parameter() const { return mu; }
+    
+    double radius() const { return r; }
+    
+    vec3 position() const { return p; }
+    
 private:
     
     std::string name;
-    double      rotation_period_;
-    vec3        position_;
-    double      radius_;
-    double      μ;
+    double      rotation_period;
+    vec3        p;
+    double      r;
+    double      mu;
     struct      atmosphere {
         atmosphere(double d0 = 0, double sh = 0, double d = 0) :
-            groundDensity(d0),
-            scaleHeight(sh),
+            ground_density(d0),
+            scale_height(sh),
             depth(d){}
-        double groundDensity;
-        double scaleHeight;
+        double ground_density;
+        double scale_height;
         double depth;
-    }           atmo_;
+    }           atmo;
     
 };
+

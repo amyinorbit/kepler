@@ -28,7 +28,11 @@ time = data['time']
 x = data['x']
 y = data['y']
 z = data['z']
-v = data['velocity']
+ix = data['ix']
+iy = data['iy']
+iz = data['iz']
+lat = data['lat']
+lon = data['lon']
 
 plt.figure()
 plt.title('Orbit')
@@ -40,6 +44,7 @@ plot1.margins(0.05)
 # coordinates of the image - don't know if this is entirely accurate, but probably close
 
 plot1.plot(x, y, z, 'r', label='trajectory', linewidth=0.4, zorder=0.1)
+plot1.plot(ix, iy, iz, 'b', label='trajectory', linewidth=0.4, zorder=0.1)
 plot_earth(plot1)
 plot1.set_aspect('equal', adjustable='box')
 
@@ -47,7 +52,7 @@ l = np.amax([np.amax(np.abs(x)), np.amax(np.abs(y)), np.amax(np.abs(z))])
 
 plot1.auto_scale_xyz([-l, l], [-l, l], [-l, l])
 
-#plt.savefig('trajectory.pdf')
+#plt.savefig('/Users/cesar/Desktop/trajectory.pdf')
 
 
 plt.show()

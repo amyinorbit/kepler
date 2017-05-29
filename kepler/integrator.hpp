@@ -8,10 +8,14 @@
 
 #pragma once
 
-struct integrator {
+#include "solid_body.hpp"
+#include "massive_body.hpp"
+
+class integrator {
+public:
     
-    virtual ~integrator();
+    virtual ~integrator() {}
     
-    
-    virtual void Evaluate() = 0;
+    virtual void advance_state(solid_body& body, const massive_body& planet, double dt) = 0;
 };
+

@@ -21,11 +21,11 @@ massive_body::massive_body(const std::string& name,
                            double atmo_scale_h,
                            double atmo_h) :
 name(name),
-rotation_period_(period),
-position_(0, 0),
-radius_(radius),
-μ(mu),
-atmo_(rho_0, atmo_scale_h, atmo_h)
+rotation_period(period),
+p(0, 0),
+r(radius),
+mu(mu),
+atmo(rho_0, atmo_scale_h, atmo_h)
 {
     
 }
@@ -40,12 +40,12 @@ massive_body::massive_body(const std::string& json_file) {
 
 
 vec3 massive_body::gravity(const vec3& at) const {
-    double r = (position_ - at).magnitude();
-    return (position_ - at).normalize((μ) / (r*r));
+    double radius = (p - at).magnitude();
+    return (p - at).normalize((mu) / (radius*radius));
 }
 
 vec3 massive_body::up(const vec3& at) const {
-    return (at - position_).normalize();
+    return (at - p).normalize();
 }
 
 vec3 massive_body::north(const vec3 &at) const {
@@ -61,49 +61,50 @@ vec3 massive_body::heading(const vec3& at, double heading, double pitch) const {
 }
 
 vec3 massive_body::inertial_velocity(const vec3& at) const {
-    double from_axis = (at - position_).xy.magnitude();
-    double angular_velocity = (2.0*M_PI)/rotation_period_;
+    double from_axis = (at - p).xy.magnitude();
+    double angular_velocity = (2.0*M_PI)/rotation_period;
     return east(at) * from_axis * angular_velocity;
 }
 
 massive_body::coordinates massive_body::polar(const vec3 &at, double epoch) const {
-    auto ray = at - position_;
+    auto ray = at - p;
     
     double longitude = degrees(std::atan2(ray.y, ray.x));
     double latitude = degrees(std::asin(at.z / ray.magnitude()));
     
     if(epoch != 0) {
-        double when = epoch / rotation_period_;
+        double when = epoch / rotation_period;
         double days = 0;
         double fract = std::modf(when, &days) * 360.0;
         longitude -= fract;
-        longitude = (longitude < 0) ? 360.0 + longitude : longitude;
+        longitude = (longitude < -180.0) ? 360.0 + longitude : longitude;
+        longitude = (longitude > 180.0) ? longitude - 360.0 : longitude;
     }
     return coordinates {
         latitude,
         longitude,
-        ray.magnitude() - radius_
+        ray.magnitude() - r
     };
 }
 
 vec3 massive_body::cartesian(const massive_body::coordinates &at) const {
     double lat = radians(at.latitude);
     double lon = radians(at.longitude);
-    double radius = (radius_ + at.altitude);
+    double rho = (r + at.altitude);
     return vec3 {
-        radius * std::cos(lat) * std::cos(lon),
-        radius * std::cos(lat) * std::sin(lon),
-        radius * std::sin(lat)
-    } + position_;
+        rho * std::cos(lat) * std::cos(lon),
+        rho * std::cos(lat) * std::sin(lon),
+        rho * std::sin(lat)
+    } + p;
 }
 
 
 double massive_body::altitude(const vec3 &at) const  {
-    return (at - position_).magnitude() - radius_;
+    return (at - p).magnitude() - r;
 }
 
 double massive_body::atmo_density(const vec3 &at) const  {
     auto h = altitude(at);
-    if(h > atmo_.depth) return 0;
-    return atmo_.groundDensity * std::pow(M_E, -(h/atmo_.scaleHeight));
+    //if(h > atmo.depth) return 0;
+    return atmo.ground_density * std::pow(M_E, -(h/atmo.scale_height));
 }

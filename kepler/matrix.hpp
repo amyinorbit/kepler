@@ -301,3 +301,4 @@ typedef matrix<3,3> mat33;
  * @brief       4*4 square matrix.
  */
 typedef matrix<4,4> mat44;
+
