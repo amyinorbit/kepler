@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		DB13F7371CDFE1D700F51DCC /* SolidBody.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB13F7351CDFE1D700F51DCC /* SolidBody.cpp */; };
-		DB29A5FB1CDFF5EC0073842B /* rk4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB29A5F91CDFF5EC0073842B /* rk4.cpp */; };
+		DB29A5FB1CDFF5EC0073842B /* RK4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB29A5F91CDFF5EC0073842B /* RK4.cpp */; };
 		DB29A5FF1CE006A80073842B /* simulation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB29A5FD1CE006A80073842B /* simulation.cpp */; };
 		DB847DA21CDA2F1300681F93 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB847DA11CDA2F1300681F93 /* main.cpp */; };
 		DB847DBF1CDA87BF00681F93 /* MassiveBody.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB847DBD1CDA87BF00681F93 /* MassiveBody.cpp */; };
 		DB847DC31CDABC1000681F93 /* Orbit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB847DC11CDABC1000681F93 /* Orbit.cpp */; };
-		DBD372F81CE105CA0023675A /* stage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBD372F61CE105CA0023675A /* stage.cpp */; };
+		E1F0E4981F41D58900099B91 /* LaunchVehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1F0E4961F41D58900099B91 /* LaunchVehicle.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,8 +32,8 @@
 		DB13F7351CDFE1D700F51DCC /* SolidBody.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SolidBody.cpp; sourceTree = "<group>"; };
 		DB13F7361CDFE1D700F51DCC /* SolidBody.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SolidBody.hpp; sourceTree = "<group>"; };
 		DB13F7381CDFE25300F51DCC /* physics.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = physics.hpp; sourceTree = "<group>"; };
-		DB29A5F91CDFF5EC0073842B /* rk4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rk4.cpp; sourceTree = "<group>"; };
-		DB29A5FA1CDFF5EC0073842B /* rk4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rk4.hpp; sourceTree = "<group>"; };
+		DB29A5F91CDFF5EC0073842B /* RK4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RK4.cpp; sourceTree = "<group>"; };
+		DB29A5FA1CDFF5EC0073842B /* RK4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RK4.hpp; sourceTree = "<group>"; };
 		DB29A5FD1CE006A80073842B /* simulation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = simulation.cpp; sourceTree = "<group>"; };
 		DB29A5FE1CE006A80073842B /* simulation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = simulation.hpp; sourceTree = "<group>"; };
 		DB847D9E1CDA2F1300681F93 /* kepler */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = kepler; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,10 +46,10 @@
 		DB847DBE1CDA87BF00681F93 /* MassiveBody.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MassiveBody.hpp; path = kepler/MassiveBody.hpp; sourceTree = "<group>"; };
 		DB847DC11CDABC1000681F93 /* Orbit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Orbit.cpp; path = kepler/Orbit.cpp; sourceTree = "<group>"; };
 		DB847DC21CDABC1000681F93 /* Orbit.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Orbit.hpp; path = kepler/Orbit.hpp; sourceTree = "<group>"; };
-		DBCC06731CDB69F300916F5D /* integrator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = integrator.hpp; sourceTree = "<group>"; };
-		DBD372F61CE105CA0023675A /* stage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stage.cpp; sourceTree = "<group>"; };
-		DBD372F71CE105CA0023675A /* stage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = stage.hpp; sourceTree = "<group>"; };
+		DBCC06731CDB69F300916F5D /* Integrator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Integrator.hpp; sourceTree = "<group>"; };
 		DBD372F91CE106FB0023675A /* json.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
+		E1F0E4961F41D58900099B91 /* LaunchVehicle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LaunchVehicle.cpp; sourceTree = "<group>"; };
+		E1F0E4971F41D58900099B91 /* LaunchVehicle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LaunchVehicle.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,11 +67,11 @@
 			isa = PBXGroup;
 			children = (
 				DB13F7381CDFE25300F51DCC /* physics.hpp */,
-				DBCC06731CDB69F300916F5D /* integrator.hpp */,
+				DBCC06731CDB69F300916F5D /* Integrator.hpp */,
 				DB13F7351CDFE1D700F51DCC /* SolidBody.cpp */,
 				DB13F7361CDFE1D700F51DCC /* SolidBody.hpp */,
-				DB29A5F91CDFF5EC0073842B /* rk4.cpp */,
-				DB29A5FA1CDFF5EC0073842B /* rk4.hpp */,
+				DB29A5F91CDFF5EC0073842B /* RK4.cpp */,
+				DB29A5FA1CDFF5EC0073842B /* RK4.hpp */,
 			);
 			name = integration;
 			sourceTree = "<group>";
@@ -141,8 +141,8 @@
 		DBD372F51CE105BB0023675A /* rocket */ = {
 			isa = PBXGroup;
 			children = (
-				DBD372F61CE105CA0023675A /* stage.cpp */,
-				DBD372F71CE105CA0023675A /* stage.hpp */,
+				E1F0E4961F41D58900099B91 /* LaunchVehicle.cpp */,
+				E1F0E4971F41D58900099B91 /* LaunchVehicle.hpp */,
 			);
 			name = rocket;
 			sourceTree = "<group>";
@@ -205,11 +205,11 @@
 			files = (
 				DB847DA21CDA2F1300681F93 /* main.cpp in Sources */,
 				DB13F7371CDFE1D700F51DCC /* SolidBody.cpp in Sources */,
-				DBD372F81CE105CA0023675A /* stage.cpp in Sources */,
 				DB29A5FF1CE006A80073842B /* simulation.cpp in Sources */,
 				DB847DC31CDABC1000681F93 /* Orbit.cpp in Sources */,
-				DB29A5FB1CDFF5EC0073842B /* rk4.cpp in Sources */,
+				DB29A5FB1CDFF5EC0073842B /* RK4.cpp in Sources */,
 				DB847DBF1CDA87BF00681F93 /* MassiveBody.cpp in Sources */,
+				E1F0E4981F41D58900099B91 /* LaunchVehicle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -103,8 +103,8 @@ double MassiveBody::altitude(const vec3 &at) const  {
     return (at - _position).magnitude() - _radius;
 }
 
-double MassiveBody::atmo_density(const vec3 &at) const  {
+double MassiveBody::atmosphericDensity(const vec3 &at) const  {
     auto h = altitude(at);
-    //if(h > atmo.depth) return 0;
+    if(h > _atomsphere.depth) return 0;
     return _atomsphere.groundDensity * std::pow(M_E, -(h/_atomsphere.scaleHeight));
 }

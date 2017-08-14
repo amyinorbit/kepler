@@ -1,5 +1,5 @@
 //
-//  integrator.hpp
+//  Integrator.hpp
 //  kepler
 //
 //  Created by Amy Parent on 05/05/2016.
@@ -11,10 +11,10 @@
 #include "SolidBody.hpp"
 #include "MassiveBody.hpp"
 
-class integrator {
+class Integrator {
 public:
     
-    virtual ~integrator() {}
+    virtual ~Integrator() {}
     
     virtual void advanceState(SolidBody& body, const MassiveBody& planet, double dt) = 0;
 };

@@ -9,7 +9,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstdint>
-#include "rk4.hpp"
+#include "RK4.hpp"
 #include "MassiveBody.hpp"
 #include "Orbit.hpp"
 
@@ -46,14 +46,14 @@ int main(int argc, const char * argv[]) {
     Orbit o = Orbit(earth, r, v);
     debug_orbit(o, earth);
     
-    std::cout << "Density: " << earth.atmo_density(r) << std::endl;
+    std::cout << "Density: " << earth.atmosphericDensity(r) << std::endl;
     
     
     SolidBody body = SolidBody(419455, {10, 10, 10}, 1640.6, 2.0);
     body.state.p = r;
     body.state.v = v;
     
-    rk4 integrator{};
+    RK4 integrator{};
     
     std::ofstream out{argv[1]};
     out << "time,x,y,z,ix,iy,iz,lat,lon,alt" << std::endl;

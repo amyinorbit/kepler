@@ -18,24 +18,24 @@ Orbit::Orbit(const MassiveBody& planet, const vec3& pos, const vec3& v) {
     double mu = planet.gravitationalParameter();
     double v2 = std::pow(v.magnitude(), 2);
     auto e_vec = (vec3::cross(v, h)/mu)-r.normalize();
-    e = e_vec.magnitude();
-    if(e != 1) {
-        sma = 1 / ((2/r.magnitude()) - (v2/mu));
-        pe = sma * (1 - e);
-        ap = sma * (1 + e);
+    _eccentricity = e_vec.magnitude();
+    if(_eccentricity != 1) {
+        _sma = 1 / ((2/r.magnitude()) - (v2/mu));
+        _periapsis = _sma * (1 - _eccentricity);
+        _apoapsis = _sma * (1 + _eccentricity);
     } else {
-        pe = std::pow(h.magnitude(), 2)/mu;
-        ap = INFINITY;
-        sma = INFINITY;
+        _periapsis = std::pow(h.magnitude(), 2)/mu;
+        _apoapsis = INFINITY;
+        _sma = INFINITY;
     }
-    i = degrees(std::acos(h.z/h.magnitude()));
-    raan = degrees(std::acos(n.x/n.magnitude()));
-    arg_pea = degrees(std::acos(dot(n, e_vec)/(n.magnitude()*e_vec.magnitude())));
-    anomaly = degrees(std::acos(dot(e_vec, r)/(e_vec.magnitude()*r.magnitude())));
+    _inclination = degrees(std::acos(h.z/h.magnitude()));
+    _raan = degrees(std::acos(n.x/n.magnitude()));
+    _argOfPeriapsis = degrees(std::acos(dot(n, e_vec)/(n.magnitude()*e_vec.magnitude())));
+    _anomaly = degrees(std::acos(dot(e_vec, r)/(e_vec.magnitude()*r.magnitude())));
     
-    if(n.y < 0) { raan = 360.0 - raan; }
-    if(e_vec.z < 0) { arg_pea = 360.0 - arg_pea; }
-    if(dot(r, v) < 0) { anomaly = 360.0 - anomaly; }
+    if(n.y < 0) { _raan = 360.0 - _raan; }
+    if(e_vec.z < 0) { _argOfPeriapsis = 360.0 - _argOfPeriapsis; }
+    if(dot(r, v) < 0) { _anomaly = 360.0 - _anomaly; }
 }
 
 Orbit::Orbit(const MassiveBody& planet,
@@ -45,13 +45,13 @@ Orbit::Orbit(const MassiveBody& planet,
              double arg_p,
              double raan,
              double v) :
-    sma(a),
-    e(e),
-    i(i),
-    arg_pea(arg_p),
-    raan(raan),
-    anomaly(v)
+    _sma(a),
+    _eccentricity(e),
+    _inclination(i),
+    _argOfPeriapsis(arg_p),
+    _raan(raan),
+    _anomaly(v)
 {
-    pe = sma * (1 - e);
-    ap = sma * (1 + e);
+    _periapsis = _sma * (1 - e);
+    _apoapsis = _sma * (1 + e);
 }

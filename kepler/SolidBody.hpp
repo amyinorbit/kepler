@@ -20,7 +20,7 @@ struct SolidBody final {
     
     double      mass;
     vec3        moment_of_inertia;
-    state_t     state;
+    State     state;
     vec3        forces;
     vec3        torques;
     

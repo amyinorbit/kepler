@@ -25,32 +25,32 @@ struct Orbit final {
     
     ~Orbit() {}
     
-    double semiMajorAxis() const { return sma; }
+    double semiMajorAxis() const { return _sma; }
     
-    double periapsis() const { return pe; }
+    double periapsis() const { return _periapsis; }
     
-    double apoapsis() const { return ap; }
+    double apoapsis() const { return _apoapsis; }
     
-    double eccentricity() const { return e; }
+    double eccentricity() const { return _eccentricity; }
     
-    double inclination() const { return i; }
+    double inclination() const { return _inclination; }
     
-    double argOfPeriapsis() const { return arg_pea; }
+    double argOfPeriapsis() const { return _argOfPeriapsis; }
     
-    double raan() const { return raan; }
+    double raan() const { return _raan; }
     
-    double trueAnomaly() const { return anomaly; }
+    double trueAnomaly() const { return _anomaly; }
     
 private:
     
-    double sma;
-    double pe;
-    double ap;
-    double e;
-    double i;
-    double arg_pea;
-    double raan;
-    double anomaly;
+    double _sma;
+    double _periapsis;
+    double _apoapsis;
+    double _eccentricity;
+    double _inclination;
+    double _argOfPeriapsis;
+    double _raan;
+    double _anomaly;
     
 };
 

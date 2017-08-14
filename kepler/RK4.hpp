@@ -7,21 +7,22 @@
 //
 
 #pragma once
-#include "integrator.hpp"
+#include "Integrator.hpp"
 
-class rk4 final : public integrator {
+class RK4 final : public Integrator {
 public:
     
     virtual void advanceState(SolidBody& body, const MassiveBody& planet, double dt);
     
 private:
     
-    derivative_t evaluate(SolidBody& body,
+    Derivative evaluate(SolidBody& body,
                           const MassiveBody& planet,
                           double dt,
-                          const derivative_t& d);
+                          const Derivative& d);
     
-    vec3 acceleration(const SolidBody& body, const state_t& state, const MassiveBody& planet);
+    vec3 acceleration(const SolidBody& body, const State& state, const MassiveBody& planet);
     
 };
+
 

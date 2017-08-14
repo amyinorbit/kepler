@@ -6,10 +6,10 @@
 //  Copyright © 2016 Amy Parent. All rights reserved.
 //
 
-#include "rk4.hpp"
+#include "RK4.hpp"
 
-void rk4::advanceState(SolidBody &body, const MassiveBody &planet, double dt) {
-    auto a = evaluate(body, planet, dt, derivative_t{});
+void RK4::advanceState(SolidBody &body, const MassiveBody &planet, double dt) {
+    auto a = evaluate(body, planet, dt, Derivative{});
     auto b = evaluate(body, planet, dt*0.5, a);
     auto c = evaluate(body, planet, dt*0.5, b);
     auto d = evaluate(body, planet, dt, c);
@@ -21,16 +21,16 @@ void rk4::advanceState(SolidBody &body, const MassiveBody &planet, double dt) {
     body.state.v += dvdt * dt;
 }
 
-derivative_t rk4::evaluate(SolidBody &body,
+Derivative RK4::evaluate(SolidBody &body,
                            const MassiveBody &planet,
                            double dt,
-                           const derivative_t &d) {
-    state_t s;
+                           const Derivative &d) {
+    State s;
     
     s.p = body.state.p + dt * d.dp;
     s.v = body.state.v + dt * d.dv;
     
-    derivative_t out;
+    Derivative out;
     
     out.dp = s.v;
     out.dv = acceleration(body, s, planet);
@@ -38,8 +38,8 @@ derivative_t rk4::evaluate(SolidBody &body,
     return out;
 }
 
-vec3 rk4::acceleration(const SolidBody &body, const state_t& state, const MassiveBody &planet) {
+vec3 RK4::acceleration(const SolidBody &body, const State& state, const MassiveBody &planet) {
     auto airspeed = state.v - planet.inertialVelocity(state.p);
-    auto drag = 0.5 * planet.atmo_density(state.p) * std::pow(airspeed.magnitude(), 2)*body.area*body.cd;
+    auto drag = 0.5 * planet.atmosphericDensity(state.p) * std::pow(airspeed.magnitude(), 2)*body.area*body.cd;
     return ((body.forces - airspeed.normalize(drag)) / body.mass) + planet.gravity(state.p);
 }

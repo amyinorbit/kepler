@@ -9,12 +9,12 @@
 #pragma once
 #include <memory>
 #include <string>
-#include "integrator.hpp"
+#include "Integrator.hpp"
 
 
 class simulation {
     
-    simulation(std::shared_ptr<integrator> integrator,
+    simulation(std::shared_ptr<Integrator> integrator,
                const std::string& planet);
     
     

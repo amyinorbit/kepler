@@ -33,16 +33,16 @@ struct MassiveBody final {
     
     ~MassiveBody() {}
     
-    // Get Lat/Lon/Alt from cartesian coordinates.
+    /// Get Lat/Lon/Alt from cartesian coordinates.
     coordinates polar(const vec3& at, double epoch = 0) const;
     
-    // Get cartesian coordinates based on Lat/Lon/Alt
+    /// Get cartesian coordinates based on Lat/Lon/Alt
     vec3 cartesian(const coordinates& at) const;
     
-    // Returns the surface velocity
+    /// Returns the surface velocity
     vec3 inertialVelocity(const vec3& at) const;
     
-    // Local gravity force exerted by the body.
+    /// Local gravity force exerted by the body.
     vec3 gravity(const vec3& at) const;
     
     /// Local vertical relative to the body.
@@ -58,7 +58,7 @@ struct MassiveBody final {
     double altitude(const vec3& at) const;
     
     /// Atmospheric density at the current position.
-    double atmo_density(const vec3& at) const;
+    double atmosphericDensity(const vec3& at) const;
     
     double gravitationalParameter() const { return _gravitationalParameter; }
     
