@@ -8,7 +8,7 @@
 
 #include "rk4.hpp"
 
-void rk4::advance_state(solid_body &body, const massive_body &planet, double dt) {
+void rk4::advanceState(SolidBody &body, const MassiveBody &planet, double dt) {
     auto a = evaluate(body, planet, dt, derivative_t{});
     auto b = evaluate(body, planet, dt*0.5, a);
     auto c = evaluate(body, planet, dt*0.5, b);
@@ -21,8 +21,8 @@ void rk4::advance_state(solid_body &body, const massive_body &planet, double dt)
     body.state.v += dvdt * dt;
 }
 
-derivative_t rk4::evaluate(solid_body &body,
-                           const massive_body &planet,
+derivative_t rk4::evaluate(SolidBody &body,
+                           const MassiveBody &planet,
                            double dt,
                            const derivative_t &d) {
     state_t s;
@@ -38,8 +38,8 @@ derivative_t rk4::evaluate(solid_body &body,
     return out;
 }
 
-vec3 rk4::acceleration(const solid_body &body, const state_t& state, const massive_body &planet) {
-    auto airspeed = state.v - planet.inertial_velocity(state.p);
+vec3 rk4::acceleration(const SolidBody &body, const state_t& state, const MassiveBody &planet) {
+    auto airspeed = state.v - planet.inertialVelocity(state.p);
     auto drag = 0.5 * planet.atmo_density(state.p) * std::pow(airspeed.magnitude(), 2)*body.area*body.cd;
     return ((body.forces - airspeed.normalize(drag)) / body.mass) + planet.gravity(state.p);
 }

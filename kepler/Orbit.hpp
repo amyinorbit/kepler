@@ -1,5 +1,5 @@
 //
-//  orbit.hpp
+//  Orbit.hpp
 //  kepler
 //
 //  Created by Amy Parent on 05/05/2016.
@@ -9,13 +9,13 @@
 #pragma once
 #include "vec.hpp"
 
-class massive_body;
+class MassiveBody;
 
-struct orbit final {
+struct Orbit final {
     
-    orbit(const massive_body& planet, const vec3& position, const vec3& velocity);
+    Orbit(const MassiveBody& planet, const vec3& position, const vec3& velocity);
     
-    orbit(const massive_body& planet,
+    Orbit(const MassiveBody& planet,
           double a,
           double e,
           double i,
@@ -23,9 +23,9 @@ struct orbit final {
           double raan,
           double v);
     
-    ~orbit() {}
+    ~Orbit() {}
     
-    double semi_major_axis() const { return sma; }
+    double semiMajorAxis() const { return sma; }
     
     double periapsis() const { return pe; }
     
@@ -35,11 +35,11 @@ struct orbit final {
     
     double inclination() const { return i; }
     
-    double perigee_argument() const { return arg_pea; }
+    double argOfPeriapsis() const { return arg_pea; }
     
-    double RAAN() const { return raan; }
+    double raan() const { return raan; }
     
-    double true_anomaly() const { return anomaly; }
+    double trueAnomaly() const { return anomaly; }
     
 private:
     

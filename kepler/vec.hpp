@@ -332,7 +332,7 @@ operator-(const vec<T, S>& rhs) {
  */
 template<typename T, int S> T
 dot(const vec<T, S>& a, const vec<T, S>& b) {
-    T prod;
+    T prod{};
     for(int i = 0; i < S; ++i) {
         prod += a.data[i] * b.data[i];
     }

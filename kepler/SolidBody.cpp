@@ -6,9 +6,9 @@
 //  Copyright © 2016 Amy Parent. All rights reserved.
 //
 
-#include "solid_body.hpp"
+#include "SolidBody.hpp"
 
-solid_body::solid_body(double mass, const vec3& moment_of_inertia, double area, double cd) :
+SolidBody::SolidBody(double mass, const vec3& moment_of_inertia, double area, double cd) :
 mass(mass),
 moment_of_inertia(moment_of_inertia),
 state(),
@@ -20,7 +20,7 @@ cd(cd)
     
 }
 
-void solid_body::apply_force(const vec3 &force, const vec3 &com_offset) {
+void SolidBody::apply_force(const vec3 &force, const vec3 &com_offset) {
     forces += force;
     // TODO: handle torque, too
 }

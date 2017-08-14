@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DB13F7371CDFE1D700F51DCC /* solid_body.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB13F7351CDFE1D700F51DCC /* solid_body.cpp */; };
+		DB13F7371CDFE1D700F51DCC /* SolidBody.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB13F7351CDFE1D700F51DCC /* SolidBody.cpp */; };
 		DB29A5FB1CDFF5EC0073842B /* rk4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB29A5F91CDFF5EC0073842B /* rk4.cpp */; };
 		DB29A5FF1CE006A80073842B /* simulation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB29A5FD1CE006A80073842B /* simulation.cpp */; };
 		DB847DA21CDA2F1300681F93 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB847DA11CDA2F1300681F93 /* main.cpp */; };
-		DB847DB61CDA3A4100681F93 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB847DB51CDA3A4100681F93 /* main.cpp */; };
-		DB847DBF1CDA87BF00681F93 /* massive_body.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB847DBD1CDA87BF00681F93 /* massive_body.cpp */; };
-		DB847DC31CDABC1000681F93 /* orbit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB847DC11CDABC1000681F93 /* orbit.cpp */; };
+		DB847DBF1CDA87BF00681F93 /* MassiveBody.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB847DBD1CDA87BF00681F93 /* MassiveBody.cpp */; };
+		DB847DC31CDABC1000681F93 /* Orbit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB847DC11CDABC1000681F93 /* Orbit.cpp */; };
 		DBD372F81CE105CA0023675A /* stage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBD372F61CE105CA0023675A /* stage.cpp */; };
 /* End PBXBuildFile section */
 
@@ -27,20 +26,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
-		DB847DB11CDA3A4100681F93 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DB13F7351CDFE1D700F51DCC /* solid_body.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = solid_body.cpp; sourceTree = "<group>"; };
-		DB13F7361CDFE1D700F51DCC /* solid_body.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = solid_body.hpp; sourceTree = "<group>"; };
+		DB13F7351CDFE1D700F51DCC /* SolidBody.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SolidBody.cpp; sourceTree = "<group>"; };
+		DB13F7361CDFE1D700F51DCC /* SolidBody.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SolidBody.hpp; sourceTree = "<group>"; };
 		DB13F7381CDFE25300F51DCC /* physics.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = physics.hpp; sourceTree = "<group>"; };
 		DB29A5F91CDFF5EC0073842B /* rk4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rk4.cpp; sourceTree = "<group>"; };
 		DB29A5FA1CDFF5EC0073842B /* rk4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rk4.hpp; sourceTree = "<group>"; };
@@ -51,13 +41,11 @@
 		DB847DAA1CDA2FF100681F93 /* matrix.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = matrix.hpp; sourceTree = "<group>"; };
 		DB847DAB1CDA2FF100681F93 /* utils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = utils.hpp; sourceTree = "<group>"; };
 		DB847DAC1CDA2FF100681F93 /* vec.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = vec.hpp; sourceTree = "<group>"; };
-		DB847DB31CDA3A4100681F93 /* simple */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = simple; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB847DB51CDA3A4100681F93 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		DB847DBB1CDA629800681F93 /* processing.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = processing.py; path = ../processing.py; sourceTree = "<group>"; };
-		DB847DBD1CDA87BF00681F93 /* massive_body.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = massive_body.cpp; path = kepler/massive_body.cpp; sourceTree = "<group>"; };
-		DB847DBE1CDA87BF00681F93 /* massive_body.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = massive_body.hpp; path = kepler/massive_body.hpp; sourceTree = "<group>"; };
-		DB847DC11CDABC1000681F93 /* orbit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = orbit.cpp; path = kepler/orbit.cpp; sourceTree = "<group>"; };
-		DB847DC21CDABC1000681F93 /* orbit.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = orbit.hpp; path = kepler/orbit.hpp; sourceTree = "<group>"; };
+		DB847DBD1CDA87BF00681F93 /* MassiveBody.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MassiveBody.cpp; path = kepler/MassiveBody.cpp; sourceTree = "<group>"; };
+		DB847DBE1CDA87BF00681F93 /* MassiveBody.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MassiveBody.hpp; path = kepler/MassiveBody.hpp; sourceTree = "<group>"; };
+		DB847DC11CDABC1000681F93 /* Orbit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Orbit.cpp; path = kepler/Orbit.cpp; sourceTree = "<group>"; };
+		DB847DC21CDABC1000681F93 /* Orbit.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Orbit.hpp; path = kepler/Orbit.hpp; sourceTree = "<group>"; };
 		DBCC06731CDB69F300916F5D /* integrator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = integrator.hpp; sourceTree = "<group>"; };
 		DBD372F61CE105CA0023675A /* stage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stage.cpp; sourceTree = "<group>"; };
 		DBD372F71CE105CA0023675A /* stage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = stage.hpp; sourceTree = "<group>"; };
@@ -72,13 +60,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DB847DB01CDA3A4100681F93 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -87,8 +68,8 @@
 			children = (
 				DB13F7381CDFE25300F51DCC /* physics.hpp */,
 				DBCC06731CDB69F300916F5D /* integrator.hpp */,
-				DB13F7351CDFE1D700F51DCC /* solid_body.cpp */,
-				DB13F7361CDFE1D700F51DCC /* solid_body.hpp */,
+				DB13F7351CDFE1D700F51DCC /* SolidBody.cpp */,
+				DB13F7361CDFE1D700F51DCC /* SolidBody.hpp */,
 				DB29A5F91CDFF5EC0073842B /* rk4.cpp */,
 				DB29A5FA1CDFF5EC0073842B /* rk4.hpp */,
 			);
@@ -108,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				DB847DA01CDA2F1300681F93 /* kepler */,
-				DB847DB41CDA3A4100681F93 /* simple */,
 				DB847D9F1CDA2F1300681F93 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				DB847D9E1CDA2F1300681F93 /* kepler */,
-				DB847DB31CDA3A4100681F93 /* simple */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,21 +126,13 @@
 			name = geometry;
 			sourceTree = "<group>";
 		};
-		DB847DB41CDA3A4100681F93 /* simple */ = {
-			isa = PBXGroup;
-			children = (
-				DB847DB51CDA3A4100681F93 /* main.cpp */,
-			);
-			path = simple;
-			sourceTree = "<group>";
-		};
 		DB847DBC1CDA86E500681F93 /* orbits */ = {
 			isa = PBXGroup;
 			children = (
-				DB847DBD1CDA87BF00681F93 /* massive_body.cpp */,
-				DB847DBE1CDA87BF00681F93 /* massive_body.hpp */,
-				DB847DC11CDABC1000681F93 /* orbit.cpp */,
-				DB847DC21CDABC1000681F93 /* orbit.hpp */,
+				DB847DBD1CDA87BF00681F93 /* MassiveBody.cpp */,
+				DB847DBE1CDA87BF00681F93 /* MassiveBody.hpp */,
+				DB847DC11CDABC1000681F93 /* Orbit.cpp */,
+				DB847DC21CDABC1000681F93 /* Orbit.hpp */,
 			);
 			name = orbits;
 			path = ..;
@@ -196,23 +167,6 @@
 			productReference = DB847D9E1CDA2F1300681F93 /* kepler */;
 			productType = "com.apple.product-type.tool";
 		};
-		DB847DB21CDA3A4100681F93 /* simple */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DB847DB71CDA3A4100681F93 /* Build configuration list for PBXNativeTarget "simple" */;
-			buildPhases = (
-				DB847DAF1CDA3A4100681F93 /* Sources */,
-				DB847DB01CDA3A4100681F93 /* Frameworks */,
-				DB847DB11CDA3A4100681F93 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = simple;
-			productName = simple;
-			productReference = DB847DB31CDA3A4100681F93 /* simple */;
-			productType = "com.apple.product-type.tool";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -223,9 +177,6 @@
 				ORGANIZATIONNAME = cesarparent;
 				TargetAttributes = {
 					DB847D9D1CDA2F1300681F93 = {
-						CreatedOnToolsVersion = 7.3;
-					};
-					DB847DB21CDA3A4100681F93 = {
 						CreatedOnToolsVersion = 7.3;
 					};
 				};
@@ -243,7 +194,6 @@
 			projectRoot = "";
 			targets = (
 				DB847D9D1CDA2F1300681F93 /* kepler */,
-				DB847DB21CDA3A4100681F93 /* simple */,
 			);
 		};
 /* End PBXProject section */
@@ -254,20 +204,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB847DA21CDA2F1300681F93 /* main.cpp in Sources */,
-				DB13F7371CDFE1D700F51DCC /* solid_body.cpp in Sources */,
+				DB13F7371CDFE1D700F51DCC /* SolidBody.cpp in Sources */,
 				DBD372F81CE105CA0023675A /* stage.cpp in Sources */,
 				DB29A5FF1CE006A80073842B /* simulation.cpp in Sources */,
-				DB847DC31CDABC1000681F93 /* orbit.cpp in Sources */,
+				DB847DC31CDABC1000681F93 /* Orbit.cpp in Sources */,
 				DB29A5FB1CDFF5EC0073842B /* rk4.cpp in Sources */,
-				DB847DBF1CDA87BF00681F93 /* massive_body.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DB847DAF1CDA3A4100681F93 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DB847DB61CDA3A4100681F93 /* main.cpp in Sources */,
+				DB847DBF1CDA87BF00681F93 /* MassiveBody.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,20 +315,6 @@
 			};
 			name = Release;
 		};
-		DB847DB81CDA3A4100681F93 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		DB847DB91CDA3A4100681F93 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -404,15 +332,6 @@
 			buildConfigurations = (
 				DB847DA61CDA2F1300681F93 /* Debug */,
 				DB847DA71CDA2F1300681F93 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DB847DB71CDA3A4100681F93 /* Build configuration list for PBXNativeTarget "simple" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DB847DB81CDA3A4100681F93 /* Debug */,
-				DB847DB91CDA3A4100681F93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

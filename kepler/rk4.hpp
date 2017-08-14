@@ -12,16 +12,16 @@
 class rk4 final : public integrator {
 public:
     
-    virtual void advance_state(solid_body& body, const massive_body& planet, double dt);
+    virtual void advanceState(SolidBody& body, const MassiveBody& planet, double dt);
     
 private:
     
-    derivative_t evaluate(solid_body& body,
-                          const massive_body& planet,
+    derivative_t evaluate(SolidBody& body,
+                          const MassiveBody& planet,
                           double dt,
                           const derivative_t& d);
     
-    vec3 acceleration(const solid_body& body, const state_t& state, const massive_body& planet);
+    vec3 acceleration(const SolidBody& body, const state_t& state, const MassiveBody& planet);
     
 };
 

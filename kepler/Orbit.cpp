@@ -1,21 +1,21 @@
 //
-//  orbit.cpp
+//  Orbit.cpp
 //  kepler
 //
 //  Created by Amy Parent on 05/05/2016.
 //  Copyright © 2016 Amy Parent. All rights reserved.
 //
 
-#include "orbit.hpp"
-#include "massive_body.hpp"
+#include "Orbit.hpp"
+#include "MassiveBody.hpp"
 
-orbit::orbit(const massive_body& planet, const vec3& pos, const vec3& v) {
+Orbit::Orbit(const MassiveBody& planet, const vec3& pos, const vec3& v) {
     // Elements calculation from
     // https://downloads.rene-schwarz.com/download/M002-Cartesian_State_Vectors_to_Keplerian_Orbit_Elements.pdf
     vec3 r = pos - planet.position();
     vec3 h = vec3::cross(r, v);
     vec3 n = vec3{-h.y, h.x, 0};
-    double mu = planet.gravitation_parameter();
+    double mu = planet.gravitationalParameter();
     double v2 = std::pow(v.magnitude(), 2);
     auto e_vec = (vec3::cross(v, h)/mu)-r.normalize();
     e = e_vec.magnitude();
@@ -38,7 +38,7 @@ orbit::orbit(const massive_body& planet, const vec3& pos, const vec3& v) {
     if(dot(r, v) < 0) { anomaly = 360.0 - anomaly; }
 }
 
-orbit::orbit(const massive_body& planet,
+Orbit::Orbit(const MassiveBody& planet,
              double a,
              double e,
              double i,

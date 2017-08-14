@@ -12,7 +12,7 @@
 
 /// Defines the way planets are represented in the integrator/universe
 /// Atmospheres are, so far, modeled using the basic
-struct massive_body final {
+struct MassiveBody final {
     
     struct coordinates {
         double latitude;
@@ -20,7 +20,7 @@ struct massive_body final {
         double altitude;
     };
     
-    massive_body(const std::string& name,
+    MassiveBody(const std::string& name,
                  double period,
                  double radius,
                  double mu,
@@ -29,9 +29,9 @@ struct massive_body final {
                  double atmo_h);
     
     
-    massive_body(const std::string& json_file);
+    MassiveBody(const std::string& json_file);
     
-    ~massive_body() {}
+    ~MassiveBody() {}
     
     // Get Lat/Lon/Alt from cartesian coordinates.
     coordinates polar(const vec3& at, double epoch = 0) const;
@@ -40,7 +40,7 @@ struct massive_body final {
     vec3 cartesian(const coordinates& at) const;
     
     // Returns the surface velocity
-    vec3 inertial_velocity(const vec3& at) const;
+    vec3 inertialVelocity(const vec3& at) const;
     
     // Local gravity force exerted by the body.
     vec3 gravity(const vec3& at) const;
@@ -60,28 +60,28 @@ struct massive_body final {
     /// Atmospheric density at the current position.
     double atmo_density(const vec3& at) const;
     
-    double gravitation_parameter() const { return mu; }
+    double gravitationalParameter() const { return _gravitationalParameter; }
     
-    double radius() const { return r; }
+    double radius() const { return _radius; }
     
-    vec3 position() const { return p; }
+    vec3 position() const { return _position; }
     
 private:
     
     std::string name;
-    double      rotation_period;
-    vec3        p;
-    double      r;
-    double      mu;
-    struct      atmosphere {
-        atmosphere(double d0 = 0, double sh = 0, double d = 0) :
-            ground_density(d0),
-            scale_height(sh),
+    double      _rotationPeriod;
+    vec3        _position;
+    double      _radius;
+    double      _gravitationalParameter;
+    struct      Atmosphere {
+        Atmosphere(double d0 = 0, double sh = 0, double d = 0) :
+            groundDensity(d0),
+            scaleHeight(sh),
             depth(d){}
-        double ground_density;
-        double scale_height;
+        double groundDensity;
+        double scaleHeight;
         double depth;
-    }           atmo;
+    }           _atomsphere;
     
 };
 

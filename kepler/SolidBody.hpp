@@ -10,11 +10,11 @@
 
 #include "physics.hpp"
 
-struct solid_body final {
+struct SolidBody final {
     
-    solid_body(double mass, const vec3& moment_of_inertia, double area, double cd);
+    SolidBody(double mass, const vec3& moment_of_inertia, double area, double cd);
     
-    ~solid_body() {}
+    ~SolidBody() {}
     
     void apply_force(const vec3& force, const vec3& com_offset);
     
