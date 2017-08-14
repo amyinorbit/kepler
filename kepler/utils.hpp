@@ -2,8 +2,8 @@
 //  Utilities.h
 //  Meteor
 //
-//  Created by Cesar Parent on 13/07/2015.
-//  Copyright (c) 2015 Cesar Parent. All rights reserved.
+//  Created by Amy Parent on 13/07/2015.
+//  Copyright (c) 2015 Amy Parent. All rights reserved.
 //
 
 #pragma once

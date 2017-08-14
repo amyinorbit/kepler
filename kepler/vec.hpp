@@ -2,8 +2,8 @@
 //  Vec.hpp
 //  Meteor
 //
-//  Created by Cesar Parent on 22/08/2015.
-//  Copyright © 2015 Cesar Parent. All rights reserved.
+//  Created by Amy Parent on 22/08/2015.
+//  Copyright © 2015 Amy Parent. All rights reserved.
 //
 #pragma once
 #include "utils.hpp"
