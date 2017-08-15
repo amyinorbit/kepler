@@ -10,21 +10,22 @@
 
 #include "physics.hpp"
 
-struct SolidBody final {
+class SolidBody {
+public:
+    virtual ~SolidBody() {}
     
-    SolidBody(double mass, const vec3& moment_of_inertia, double area, double cd);
+    /// The body's position and velocity vectors in the simulation's reference frame.
+    virtual State stateVectors() const = 0;
     
-    ~SolidBody() {}
+    /// The body's current mass.
+    virtual double mass() const = 0;
     
-    void apply_force(const vec3& force, const vec3& com_offset);
+    /// The forces currently applied to the body.
+    virtual vec3 forces() const = 0;
     
-    double      mass;
-    vec3        moment_of_inertia;
-    State     state;
-    vec3        forces;
-    vec3        torques;
+    /// The body's plane-equivalent body's drag coefficient.
+    virtual double dragCoefficient() const = 0;
     
-    double      area;
-    double      cd;
+    /// The body's frontal surface area, used to compute aerodyamic drag.
+    virtual double surfaceArea() const = 0;
 };
-

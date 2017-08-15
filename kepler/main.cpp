@@ -13,6 +13,25 @@
 #include "MassiveBody.hpp"
 #include "Orbit.hpp"
 
+struct Body : SolidBody {
+    
+    State   _state;
+    double  _mass;
+    double  _area;
+    double  _cd;
+    vec3    _forces;
+    
+    Body(double mass, double area, double cd) : _mass(mass), _area(area), _cd(cd) {}
+    
+    virtual State stateVectors() const { return _state; }
+    virtual double mass() const { return _mass; }
+    virtual vec3 forces() const { return _forces; }
+    virtual double dragCoefficient() const { return _cd; }
+    virtual double surfaceArea() const { return _area; }
+    
+    
+};
+
 void debug_orbit(const Orbit& o, const MassiveBody& p) {
     std::cout << "==== keplerian orbital elements ====" << std::endl;
     std::cout << "ApA: " << (o.apoapsis() - p.radius())/1000.0 << "km" << std::endl;
@@ -49,9 +68,9 @@ int main(int argc, const char * argv[]) {
     std::cout << "Density: " << earth.atmosphericDensity(r) << std::endl;
     
     
-    SolidBody body = SolidBody(419455, {10, 10, 10}, 1640.6, 2.0);
-    body.state.p = r;
-    body.state.v = v;
+    auto body = Body(419455,  1640.6, 2.0);
+    body._state.p = r;
+    body._state.v = v;
     
     RK4 integrator{};
     
@@ -64,18 +83,18 @@ int main(int argc, const char * argv[]) {
     
     for(uint64_t i = 0; i < (simu_time/inc)*3600; ++i) {
         time += i*inc;
-        integrator.advanceState(body, earth, inc);
+        body._state = integrator.advanceState(body, earth, inc);
         
-        if(body.state.p.magnitude() < earth.radius()+50e3) break;
+        if(body._state.p.magnitude() < earth.radius()+50e3) break;
         
         if(i % 40 != 0) continue;
         
-        auto coord = earth.polar(body.state.p, i*inc);
+        auto coord = earth.polar(body._state.p, i*inc);
         //coord.altitude = 0;
         auto inertial = earth.cartesian(coord);
         
         out << time << ",";
-        out << body.state.p.x << "," << body.state.p.y << "," << body.state.p.z << ",";
+        out << body._state.p.x << "," << body._state.p.y << "," << body._state.p.z << ",";
         out << inertial.x << "," << inertial.y << ","  << inertial.z << ",";
         out << coord.latitude << "," << coord.longitude << "," << coord.altitude << std::endl;
         
@@ -83,7 +102,7 @@ int main(int argc, const char * argv[]) {
     
     std::cout << "simulation ended after " << std::floor(time) << "seconds (" << std::floor(time/3600.0) << " h, " << std::floor(time/(24 * 3600.0)) << "d)" << std::endl;
     
-    debug_orbit(Orbit(earth, body.state.p, body.state.v), earth);
+    debug_orbit(Orbit(earth, body._state.p, body._state.v), earth);
     
     out.close();
     

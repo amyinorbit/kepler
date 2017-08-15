@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DB13F7371CDFE1D700F51DCC /* SolidBody.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB13F7351CDFE1D700F51DCC /* SolidBody.cpp */; };
 		DB29A5FB1CDFF5EC0073842B /* RK4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB29A5F91CDFF5EC0073842B /* RK4.cpp */; };
 		DB29A5FF1CE006A80073842B /* simulation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB29A5FD1CE006A80073842B /* simulation.cpp */; };
 		DB847DA21CDA2F1300681F93 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB847DA11CDA2F1300681F93 /* main.cpp */; };
@@ -29,7 +28,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DB13F7351CDFE1D700F51DCC /* SolidBody.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SolidBody.cpp; sourceTree = "<group>"; };
 		DB13F7361CDFE1D700F51DCC /* SolidBody.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SolidBody.hpp; sourceTree = "<group>"; };
 		DB13F7381CDFE25300F51DCC /* physics.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = physics.hpp; sourceTree = "<group>"; };
 		DB29A5F91CDFF5EC0073842B /* RK4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RK4.cpp; sourceTree = "<group>"; };
@@ -68,7 +66,6 @@
 			children = (
 				DB13F7381CDFE25300F51DCC /* physics.hpp */,
 				DBCC06731CDB69F300916F5D /* Integrator.hpp */,
-				DB13F7351CDFE1D700F51DCC /* SolidBody.cpp */,
 				DB13F7361CDFE1D700F51DCC /* SolidBody.hpp */,
 				DB29A5F91CDFF5EC0073842B /* RK4.cpp */,
 				DB29A5FA1CDFF5EC0073842B /* RK4.hpp */,
@@ -204,7 +201,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB847DA21CDA2F1300681F93 /* main.cpp in Sources */,
-				DB13F7371CDFE1D700F51DCC /* SolidBody.cpp in Sources */,
 				DB29A5FF1CE006A80073842B /* simulation.cpp in Sources */,
 				DB847DC31CDABC1000681F93 /* Orbit.cpp in Sources */,
 				DB29A5FB1CDFF5EC0073842B /* RK4.cpp in Sources */,

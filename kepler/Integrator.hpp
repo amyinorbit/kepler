@@ -16,6 +16,6 @@ public:
     
     virtual ~Integrator() {}
     
-    virtual void advanceState(SolidBody& body, const MassiveBody& planet, double dt) = 0;
+    virtual State advanceState(const SolidBody& body, const MassiveBody& planet, double dt) = 0;
 };
 
